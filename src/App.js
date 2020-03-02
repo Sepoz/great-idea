@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Post from "./components/Post";
+import PostRender from './components/PostRender';
 
-function App() {
+const App = () => {
+	const [posts, setPosts] = useState([
+    {
+		title: "Title 1",
+		content: "Hi my name is Simone!",
+		karma: 1,
+		date: "Mon, 02 Mar 2020 16:15:30 GMT"
+    },
+    {
+		title: "Title 2",
+		content: "Hi my name is Carla!",
+		karma: 34,
+		date: "Mon, 02 Mar 2020 16:15:30 GMT"
+    },
+    {
+		title: "Title 3",
+		content: "Hi my name is Mirco!",
+		karma: 948,
+		date: "Mon, 02 Mar 2020 16:15:30 GMT"
+    }
+  ]);
+  const [newPost, setNewPost] = useState("");
+  const [newTitle, setNewTitle] = useState("");
+  const [newKarma, setNewKarma] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <h1>Reddit 2</h1>
+    
+      <ul>
+        <PostRender posts={posts} />
+      </ul>
+
+      <Post newPost={newPost} setNewPost={setNewPost} posts={posts} setPosts={setPosts} newTitle={newTitle} setNewTitle={setNewTitle} newKarma={newKarma} /> 
+
     </div>
   );
 }
