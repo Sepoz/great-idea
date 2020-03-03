@@ -2,19 +2,19 @@ import React from "react";
 
 const PostMap = ({ post }) => {
 
-    // handel comment button
+    // handle comment button
     const handleCommentButton = () => {
         console.log("comments!");
     };
 
     // handle upvote button
     const handleUpvoteButton = () => {
-        console.log("+ 1");
+        console.log("+ 1", post.karma);
     };
 
     // handle downvote button
     const handleDownvoteButton = () => {
-        console.log("- 1");
+        console.log("- 1", post.karma);
     };
 
     return (

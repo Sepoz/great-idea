@@ -1,6 +1,7 @@
 import React from "react";
+import axios from "axios";
 
-const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle, newKarma }) => {
+const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) => {
     
     // create the post object
     const addPost = (event) => {
@@ -8,15 +9,17 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle, new
         const postObject = {
 			title: newTitle,
 			content: newPost,
-			karma: newKarma,
+      		karma: 0,
 			date: new Date().toUTCString()
-        }
-		// concat the post object to posts and reset the inputs
-        setPosts(posts.concat(postObject));
-		setNewPost("");
-		setNewTitle("");
-        console.log(posts);
-        
+		}
+		
+		axios
+			.post("http://localhost:3001/posts", postObject)
+			.then(res => {
+				setPosts(posts.concat(res.data));
+				setNewPost("");
+				setNewTitle("");
+			});
     };
 
     // handle the tiping in the content input
