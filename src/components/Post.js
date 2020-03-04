@@ -1,6 +1,6 @@
 import React from "react";
 
-const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle, newKarma }) => {
+const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) => {
     
     // create the post object
     const addPost = (event) => {
@@ -8,7 +8,6 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle, new
         const postObject = {
 			title: newTitle,
 			content: newPost,
-			karma: newKarma,
 			date: new Date().toUTCString()
         }
 		// concat the post object to posts and reset the inputs

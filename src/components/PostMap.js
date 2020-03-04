@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PostMap = ({ post }) => {
+    const [karma, setKarma] = useState(0);
 
     // handel comment button
     const handleCommentButton = () => {
@@ -9,12 +10,12 @@ const PostMap = ({ post }) => {
 
     // handle upvote button
     const handleUpvoteButton = () => {
-        console.log("+ 1");
+        setKarma(karma + 1);
     };
 
     // handle downvote button
     const handleDownvoteButton = () => {
-        console.log("- 1");
+        setKarma(karma - 1);
     };
 
     return (

@@ -25,7 +25,6 @@ const App = () => {
   ]);
   const [newPost, setNewPost] = useState("");
   const [newTitle, setNewTitle] = useState("");
-  const [newKarma, setNewKarma] = useState(0);
 
   return (
     <div>
@@ -36,7 +35,7 @@ const App = () => {
         <PostRender posts={posts} />
       </ul>
 
-      <Post newPost={newPost} setNewPost={setNewPost} posts={posts} setPosts={setPosts} newTitle={newTitle} setNewTitle={setNewTitle} newKarma={newKarma} /> 
+      <Post newPost={newPost} setNewPost={setNewPost} posts={posts} setPosts={setPosts} newTitle={newTitle} setNewTitle={setNewTitle} /> 
 
     </div>
   );
