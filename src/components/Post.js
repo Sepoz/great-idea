@@ -9,7 +9,6 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
         const postObject = {
 			title: newTitle,
 			content: newPost,
-      		karma: 0,
 			date: new Date().toUTCString()
 		}
 		
