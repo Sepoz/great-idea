@@ -14,6 +14,7 @@ const App = () => {
 			.then(res => {
 				setPosts(res.data);
 			})
+			.catch(err => console.log(err))
 	}, [])
 
 	return (

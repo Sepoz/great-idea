@@ -9,6 +9,7 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
         const postObject = {
 			title: newTitle,
 			content: newPost,
+			karmaTotal: 1,
 			date: new Date().toUTCString()
 		}
 		
@@ -18,7 +19,8 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
 				setPosts(posts.concat(res.data));
 				setNewPost("");
 				setNewTitle("");
-			});
+			})
+			.catch(err => console.log(err))
     };
 
     // handle the tiping in the content input

@@ -1,25 +1,25 @@
 {
   "posts": [
     {
-      "id": 1,
       "title": "Title 1",
       "content": "Hi my name is Simone!",
-      "karma": 1,
-      "date": "Mon, 02 Mar 2020 16:15:30 GMT"
+      "date": "Mon, 02 Mar 2020 16:15:30 GMT",
+      "id": 1,
+      "karmaTotal": 1
     },
     {
       "title": "Title 2",
       "content": "Hi my name is Carla!",
-      "karma": 0,
       "date": "Tue, 03 Mar 2020 19:04:42 GMT",
-      "id": 2
+      "id": 2,
+      "karmaTotal": 1
     },
     {
       "title": "Title 3",
       "content": "Hi my name is Mirco!",
-      "karma": 0,
       "date": "Tue, 03 Mar 2020 19:05:32 GMT",
-      "id": 3
+      "id": 3,
+      "karmaTotal": 1
     }
   ]
 }
