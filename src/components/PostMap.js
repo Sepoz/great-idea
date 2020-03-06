@@ -10,20 +10,20 @@ const PostMap = ({ post }) => {
     };
 
     // handle upvote button
-    // make a patch request that changes the post.karmaTotal to the actual value of karma
+    // patch request
     const handleUpvoteButton = () => {
         setKarma(karma + 1);
-        console.log("karma", karma);
-
+        
         axios
-            .patch(`http://localhost:3001/posts/${post.id}`, {
-                karmaTotal: karma
-            })  
-            .then(res => {console.log(res.data)})
-            .catch(err => console.log(err))
+        .patch(`http://localhost:3001/posts/${post.id}`, {
+            karmaTotal: karma
+        })  
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
     };
 
     // handle downvote button
+    // patch request
     const handleDownvoteButton = () => {
         setKarma(karma - 1);
 
@@ -38,7 +38,7 @@ const PostMap = ({ post }) => {
     return (
         <div className="post">
             <h3>{post.title}</h3>
-            <li>{post.karmaTotal} {post.content}</li>
+            <li>{karma} {post.content}</li>
             
             <button onClick={handleUpvoteButton}>upvote</button>
             <button onClick={handleDownvoteButton}>downvote</button>
