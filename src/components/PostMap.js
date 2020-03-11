@@ -1,27 +1,49 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const PostMap = ({ post }) => {
-    const [karma, setKarma] = useState(0);
+    const [karma, setKarma] = useState(post.karmaTotal);
+    const [voted, setVoted] = useState(false);
 
-    // handel comment button
+    // handle comment button
     const handleCommentButton = () => {
         console.log("comments!");
     };
 
     // handle upvote button
     const handleUpvoteButton = () => {
-        setKarma(karma + 1);
+        if (voted === false) {
+            setKarma(karma + 1);
+            setVoted(true);
+        } else {
+            window.alert("You already voted!");
+        };
     };
 
     // handle downvote button
     const handleDownvoteButton = () => {
-        setKarma(karma - 1);
+        if (voted === false) {
+            setKarma(karma - 1);
+            setVoted(true);
+        } else {
+            window.alert("You alredy voted!");
+        };
     };
+
+    // patch request
+    axios
+    .patch(`http://localhost:3001/posts/${post.id}`, {
+        karmaTotal: karma
+    })  
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err))
+
+
 
     return (
         <div className="post">
             <h3>{post.title}</h3>
-            <li>{post.karma} {post.content}</li>
+            <li>{karma} {post.content}</li>
             
             <button onClick={handleUpvoteButton}>upvote</button>
             <button onClick={handleDownvoteButton}>downvote</button>

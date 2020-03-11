@@ -3,7 +3,7 @@ import PostMap from "./PostMap";
 
 // map every post 
 const PostRender = ({ posts }) => {
-    return posts.map(post => <PostMap key={post.content} post={post} />)
+    return posts.map(post => <PostMap key={post.id} post={post} />)
 };
 
 export default PostRender;
