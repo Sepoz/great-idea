@@ -3,6 +3,7 @@ import axios from "axios";
 
 const PostMap = ({ post }) => {
     const [karma, setKarma] = useState(post.karmaTotal);
+    const [voted, setVoted] = useState(false);
 
     // handle comment button
     const handleCommentButton = () => {
@@ -10,30 +11,34 @@ const PostMap = ({ post }) => {
     };
 
     // handle upvote button
-    // patch request
     const handleUpvoteButton = () => {
-        setKarma(karma + 1);
-        
-        axios
-        .patch(`http://localhost:3001/posts/${post.id}`, {
-            karmaTotal: karma
-        })  
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err))
+        if (voted === false) {
+            setKarma(karma + 1);
+            setVoted(true);
+        } else {
+            window.alert("You already voted!");
+        };
     };
 
     // handle downvote button
-    // patch request
     const handleDownvoteButton = () => {
-        setKarma(karma - 1);
-
-        axios
-            .patch(`http://localhost:3001/posts/${post.id}`, {
-                karmaTotal: karma
-            })  
-            .then(res => {console.log(res.data)})
-            .catch(err => console.log(err))
+        if (voted === false) {
+            setKarma(karma - 1);
+            setVoted(true);
+        } else {
+            window.alert("You alredy voted!");
+        };
     };
+
+    // patch request
+    axios
+    .patch(`http://localhost:3001/posts/${post.id}`, {
+        karmaTotal: karma
+    })  
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err))
+
+
 
     return (
         <div className="post">
