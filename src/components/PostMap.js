@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const PostMap = ({ post }) => {
@@ -31,12 +31,14 @@ const PostMap = ({ post }) => {
     };
 
     // patch request
-    axios
-    .patch(`http://localhost:3001/posts/${post.id}`, {
-        karmaTotal: karma
-    })  
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err))
+    useEffect(() => {
+        axios
+        .patch(`http://localhost:3001/posts/${post.id}`, {
+            karmaTotal: karma
+        })  
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
+    }, [karma, post.id]);
 
 
 
