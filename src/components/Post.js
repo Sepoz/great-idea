@@ -14,7 +14,7 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
 		}
 		
 		axios
-			.post("http://localhost:3001/posts", postObject)
+			.post("/posts", postObject)
 			.then(res => {
 				setPosts(posts.concat(res.data));
 				setNewPost("");

@@ -33,7 +33,7 @@ const PostMap = ({ post }) => {
     // patch request
     useEffect(() => {
         axios
-        .patch(`http://localhost:3001/posts/${post.id}`, {
+        .patch(`/posts/${post.id}`, {
             karmaTotal: karma
         })  
         .then(res => console.log(res.data))
