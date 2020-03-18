@@ -5,7 +5,8 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
     
     // create the post object
     const addPost = (event) => {
-        event.preventDefault()
+		event.preventDefault();
+		
         const postObject = {
 			title: newTitle,
 			content: newPost,
@@ -28,7 +29,7 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
         setNewPost(event.target.value);
     };
 
-    // handle the tiping in the comment input
+    // handle the tiping in the title input
     const handleTitleChange = (event) => {
 		setNewTitle(event.target.value);
     };
