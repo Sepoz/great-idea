@@ -5,7 +5,7 @@ import CommentsRender from "./CommentsRender";
 const PostMap = ({ post }) => {
     const [karma, setKarma] = useState(post.karmaTotal);
     const [voted, setVoted] = useState(false);
-    const [comment, setComment] = useState([]);
+    const [comment, setComment] = useState(post.comments);
     const [newComment, setNewComment] = useState("");
 
     // handle upvote button
@@ -47,7 +47,7 @@ const PostMap = ({ post }) => {
             .post(`/posts/comment/${post.id}`, commentObject)
             .then(res => {
                 setComment(comment.concat(res.data));
-                console.log("comment",comment);
+                window.alert("comment added!");
                 setNewComment("");
             })
             .catch(err => console.log(err))

@@ -10,7 +10,8 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
         const postObject = {
 			title: newTitle,
 			content: newPost,
-			karmaTotal: 1,
+      karmaTotal: 1,
+      comments: [],
 			date: new Date().toUTCString()
 		}
 		
@@ -35,7 +36,7 @@ const Post = ({ newPost, setNewPost, posts, setPosts, newTitle, setNewTitle }) =
     };
 
     return (
-      <div>
+      <div className="post-form">
         <form onSubmit={addPost}>
           <input type="text" value={newTitle} required onChange={handleTitleChange} />
           <textarea type="text" value={newPost} required onChange={handleContentChange} />
