@@ -6,7 +6,7 @@ import PostRender from './components/PostRender';
 const App = () => {
 	const [posts, setPosts] = useState([]);
   	const [newPost, setNewPost] = useState("");
-  	const [newTitle, setNewTitle] = useState("");
+	const [newTitle, setNewTitle] = useState("");
 
   	useEffect(() => {
 		axios
@@ -19,15 +19,9 @@ const App = () => {
 
 	return (
 		<div>
-
 		<h1>Reddit 2</h1>
-		
-		<ul>
-			<PostRender posts={posts} />
-		</ul>
-
-		<Post newPost={newPost} setNewPost={setNewPost} posts={posts} setPosts={setPosts} newTitle={newTitle} setNewTitle={setNewTitle} /> 
-
+		<Post newPost={newPost} setNewPost={setNewPost} posts={posts} setPosts={setPosts} newTitle={newTitle} setNewTitle={setNewTitle} />
+		<PostRender posts={posts} />
 		</div>
   );
 }
